@@ -23,8 +23,34 @@ export const apiSlice = createApi({
         body: data,
       }),
     }),
+    updateColor: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/todos/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+    }),
+    updateStatus: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/todos/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+    }),
+    deleteTodo: builder.mutation({
+      query: (id) => ({
+        url: `/todos/${id}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
-export const { useGetTodosQuery, useAddTodoMutation, useEditTodoMutation } =
-  apiSlice;
+export const {
+  useGetTodosQuery,
+  useAddTodoMutation,
+  useEditTodoMutation,
+  useDeleteTodoMutation,
+  useUpdateColorMutation,
+  useUpdateStatusMutation,
+} = apiSlice;

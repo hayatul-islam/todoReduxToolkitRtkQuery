@@ -1,21 +1,39 @@
 import { useState } from "react";
 import cancelImage from "../assets/images/cancel.png";
 import editImage from "../assets/images/edit.png";
-import { useEditTodoMutation } from "../features/api/apiSlice";
+import {
+  useDeleteTodoMutation,
+  useEditTodoMutation,
+  useUpdateColorMutation,
+  useUpdateStatusMutation,
+} from "../features/api/apiSlice";
 
 export default function Todo({ todo }) {
   const [editTodo] = useEditTodoMutation();
+  const [deleteTodo] = useDeleteTodoMutation();
+  const [updateColor] = useUpdateColorMutation();
+  const [updateStatus] = useUpdateStatusMutation();
   const [input, setInput] = useState(todo.text);
   const [edit, setEdit] = useState(false);
 
   const { text, id, completed, color } = todo;
 
   const handleStatusChange = (todoId) => {
-    // dispatch(updateStatus(todoId, completed));
+    updateStatus({
+      id: todoId,
+      data: {
+        completed: !completed,
+      },
+    });
   };
 
   const handleColorChange = (todoId, color) => {
-    // dispatch(updateColor(todoId, color));
+    updateColor({
+      id: todoId,
+      data: {
+        color,
+      },
+    });
   };
 
   const handleEdit = (e, todoId) => {
@@ -32,7 +50,7 @@ export default function Todo({ todo }) {
   };
 
   const handleDelete = (todoId) => {
-    // dispatch(deleteTodo(todoId));
+    deleteTodo(todoId);
   };
 
   return (

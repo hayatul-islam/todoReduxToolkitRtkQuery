@@ -10,34 +10,22 @@
       "text": "harm  fdfsd fsdfasd",
       "completed": false,
       "id": 4,
-      "color": "yellow",
+      "color": "green",
       "title": "Learn Redux Basics fsdfs"
     },
     {
       "text": "Learn Redux  sdfsdfgsadfs",
-      "completed": false,
+      "completed": true,
       "id": 5,
-      "color": "yellow",
+      "color": "red",
       "title": "Learn Redux fundamentals sdfds"
     },
     {
       "text": "Learn Redux Toolkit  addd",
-      "completed": true,
+      "completed": false,
       "id": 7,
       "color": "yellow",
       "title": "Learn Redux Toolkit fsdf"
-    },
-    {
-      "text": "todo list fsdaf",
-      "completed": false,
-      "id": 8,
-      "color": "red"
-    },
-    {
-      "text": "hhhh bbbbb",
-      "completed": true,
-      "id": 10,
-      "color": "red"
     }
   ]
 }
