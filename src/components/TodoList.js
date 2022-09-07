@@ -1,37 +1,30 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useGetTodosQuery } from "../features/api/apiSlice";
 import Todo from "./Todo";
 
 export default function TodoList() {
-  const todos = useSelector((state) => state.todos);
-  const filters = useSelector((state) => state.filters);
-  const dispatch = useDispatch();
+  const { data: todos } = useGetTodosQuery();
 
-  useEffect(() => {
-    // dispatch(fetchTodos);
-  }, [dispatch]);
+  // const filterByStatus = (todo) => {
+  //   const { status } = filters;
+  //   switch (status) {
+  //     case "Complete":
+  //       return todo.completed;
 
-  const filterByStatus = (todo) => {
-    const { status } = filters;
-    switch (status) {
-      case "Complete":
-        return todo.completed;
+  //     case "Incomplete":
+  //       return !todo.completed;
 
-      case "Incomplete":
-        return !todo.completed;
+  //     default:
+  //       return true;
+  //   }
+  // };
 
-      default:
-        return true;
-    }
-  };
-
-  const filterByColors = (todo) => {
-    const { colors } = filters;
-    if (colors.length > 0) {
-      return colors.includes(todo?.color);
-    }
-    return true;
-  };
+  // const filterByColors = (todo) => {
+  //   const { colors } = filters;
+  //   if (colors.length > 0) {
+  //     return colors.includes(todo?.color);
+  //   }
+  //   return true;
+  // };
 
   return (
     <>
@@ -40,18 +33,20 @@ export default function TodoList() {
           <h2 className="text-md font-bold mb-1">Incomplete Tasks:</h2>
           <hr />
         </div>
-        {todos
-          ?.filter(filterByStatus)
-          .filter(filterByColors)
-          .map((todo) => !todo.completed && <Todo todo={todo} key={todo.id} />)}
+        {todos?.map(
+          (todo) => !todo.completed && <Todo todo={todo} key={todo.id} />
+        )}
         <div className=" py-2 my-2  text-gray-800">
           <h2 className="text-md font-bold mb-1">Complete Tasks:</h2>
           <hr />
         </div>
-        {todos
+        {/* {todos
           ?.filter(filterByStatus)
           .filter(filterByColors)
-          .map((todo) => todo.completed && <Todo todo={todo} key={todo.id} />)}
+          .map((todo) => todo.completed && <Todo todo={todo} key={todo.id} />)} */}
+        {todos?.map(
+          (todo) => todo.completed && <Todo todo={todo} key={todo.id} />
+        )}
       </div>
     </>
   );
