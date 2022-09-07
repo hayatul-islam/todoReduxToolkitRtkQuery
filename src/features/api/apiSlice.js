@@ -5,9 +5,11 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:9000",
   }),
+  tagTypes: ["Todos", "Todo"],
   endpoints: (builder) => ({
     getTodos: builder.query({
       query: () => "/todos",
+      providesTags: ["Todos"],
     }),
     addTodo: builder.mutation({
       query: (data) => ({
@@ -15,6 +17,7 @@ export const apiSlice = createApi({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["Todos"],
     }),
     editTodo: builder.mutation({
       query: ({ id, data }) => ({
@@ -22,6 +25,7 @@ export const apiSlice = createApi({
         method: "PATCH",
         body: data,
       }),
+      invalidatesTags: ["Todos"],
     }),
     updateColor: builder.mutation({
       query: ({ id, data }) => ({
@@ -29,6 +33,7 @@ export const apiSlice = createApi({
         method: "PATCH",
         body: data,
       }),
+      invalidatesTags: ["Todos"],
     }),
     updateStatus: builder.mutation({
       query: ({ id, data }) => ({
@@ -36,12 +41,14 @@ export const apiSlice = createApi({
         method: "PATCH",
         body: data,
       }),
+      invalidatesTags: ["Todos"],
     }),
     deleteTodo: builder.mutation({
       query: (id) => ({
         url: `/todos/${id}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["Todos"],
     }),
   }),
 });

@@ -3,29 +3,33 @@
     {
       "id": 1,
       "text": "Learn Vanilla JavaScript",
-      "completed": true,
+      "completed": false,
       "color": "yellow"
     },
     {
       "text": "harm  fdfsd fsdfasd",
-      "completed": false,
+      "completed": true,
       "id": 4,
-      "color": "green",
+      "color": "yellow",
       "title": "Learn Redux Basics fsdfs"
     },
     {
-      "text": "Learn Redux  sdfsdfgsadfs",
-      "completed": true,
-      "id": 5,
-      "color": "red",
-      "title": "Learn Redux fundamentals sdfds"
+      "text": "fsafsd dfasdfsdfasd",
+      "completed": false,
+      "color": "green",
+      "id": 6
     },
     {
-      "text": "Learn Redux Toolkit  addd",
-      "completed": false,
-      "id": 7,
-      "color": "yellow",
-      "title": "Learn Redux Toolkit fsdf"
+      "text": "fasdfsd",
+      "completed": true,
+      "color": "green",
+      "id": 7
+    },
+    {
+      "text": "dsfasdf",
+      "completed": true,
+      "color": "green",
+      "id": 8
     }
   ]
 }
