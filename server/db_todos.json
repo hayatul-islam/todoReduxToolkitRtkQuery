@@ -14,7 +14,7 @@
       "title": "Learn Redux Basics fsdfs"
     },
     {
-      "text": "Learn Redux ",
+      "text": "Learn Redux  sdfsdfgsadfs",
       "completed": false,
       "id": 5,
       "color": "yellow",
@@ -38,21 +38,6 @@
       "completed": true,
       "id": 10,
       "color": "red"
-    },
-    {
-      "id": 11
-    },
-    {
-      "id": 12
-    },
-    {
-      "id": 13
-    },
-    {
-      "text": "addddddddddddddd",
-      "completed": false,
-      "color": "",
-      "id": 14
     }
   ]
 }

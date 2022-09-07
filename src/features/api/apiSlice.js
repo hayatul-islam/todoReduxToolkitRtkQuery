@@ -16,7 +16,15 @@ export const apiSlice = createApi({
         body: data,
       }),
     }),
+    editTodo: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/todos/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+    }),
   }),
 });
 
-export const { useGetTodosQuery, useAddTodoMutation } = apiSlice;
+export const { useGetTodosQuery, useAddTodoMutation, useEditTodoMutation } =
+  apiSlice;

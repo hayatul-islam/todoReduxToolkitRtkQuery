@@ -1,8 +1,10 @@
 import { useState } from "react";
 import cancelImage from "../assets/images/cancel.png";
 import editImage from "../assets/images/edit.png";
+import { useEditTodoMutation } from "../features/api/apiSlice";
 
 export default function Todo({ todo }) {
+  const [editTodo] = useEditTodoMutation();
   const [input, setInput] = useState(todo.text);
   const [edit, setEdit] = useState(false);
 
@@ -18,7 +20,13 @@ export default function Todo({ todo }) {
 
   const handleEdit = (e, todoId) => {
     if (e.key === "Enter") {
-      // dispatch(editTodo(todoId, input));
+      console.log(input);
+      editTodo({
+        id: todoId,
+        data: {
+          text: input,
+        },
+      });
       setEdit(false);
     }
   };
