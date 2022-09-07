@@ -2,8 +2,10 @@ import { useState } from "react";
 import tickImage from "../assets/images/double-tick.png";
 import noteImage from "../assets/images/notes.png";
 import plusImage from "../assets/images/plus.png";
+import { useAddTodoMutation } from "../features/api/apiSlice";
 
 export default function Header() {
+  const [addTodo] = useAddTodoMutation();
   const [input, setInput] = useState("");
 
   const handleInput = (e) => {
@@ -12,7 +14,11 @@ export default function Header() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // dispatch(addTodo(input));
+    addTodo({
+      text: input,
+      completed: false,
+      color: "",
+    });
     setInput("");
   };
 
